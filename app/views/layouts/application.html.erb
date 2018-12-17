@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ElTraining</title>
+    <title>ToDo App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+  <header>
+  <div class="header-logo">
+    ToDo App
+  </div>
+  <ul class="header-menus">
+    <li><%= link_to("Task一覧", "/")%></li>
+    <li><%= link_to("新規Taskの追加", "/new")%></li>
+
+  </ul>
+</header>
 
   <body>
     <%= yield %>

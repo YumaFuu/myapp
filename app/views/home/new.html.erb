@@ -1,0 +1,7 @@
+<div>新しいタスクの追加</div>
+
+<%= form_tag("/create") do%>
+タスク名<br><input name="name"><br>
+タスクの説明<br><textarea name="description" rows="3" cols="80"></textarea><br>
+<input type="submit" value="追加">
+<% end %>
