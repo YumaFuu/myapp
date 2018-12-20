@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   end
 
   def create
-    @task = Task.new(name: params[:name],description: params[:description])
+    @task = Task.new(name: params[:name],description: params[:description],deadline: params[:deadline])
     @task.save
     redirect_to("/")
     flash[:notice] = "タスクを登録しました"
@@ -27,6 +27,7 @@ class HomeController < ApplicationController
     @task = Task.find_by(id: params[:id])
     @task.name = params[:name]
     @task.description = params[:description]
+    @task.deadline = params[:deadline]
     @task.save
     redirect_to("/")
     flash[:notice] = "タスクを編集しました"
