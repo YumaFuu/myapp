@@ -12,11 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2018_12_17_135229) do
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+    t.integer "priority"
+    t.text "status"
+    t.text "label"
+    t.date "deadline"
   end
 
 end
