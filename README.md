@@ -1,7 +1,7 @@
 Todo app
 ====
 
-You can management tasks.
+You can manage tasks.
 
 
 ## Description
