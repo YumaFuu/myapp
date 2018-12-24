@@ -2,7 +2,7 @@
 
 <% @task.errors.full_messages.each do |message| %>
 <%= message %>
-<%end%>
+<% end %>
 
 <%= form_tag("/#{@task.id}/update") do%>
 タスク名<br><input name="name" value="<%= "#{@task.name}" %>"><br>

@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
+
   def top
-    @tasks = Task.all
+    @tasks = Task.all.order(created_at: :desc)
   end
 
   def new
@@ -28,9 +29,12 @@ class HomeController < ApplicationController
     @task.name = params[:name]
     @task.description = params[:description]
     @task.deadline = params[:deadline]
-    @task.save
-    redirect_to("/")
-    flash[:notice] = "タスクを編集しました"
+    if @task.save
+      redirect_to("/")
+      flash[:notice] = "タスクを編集しました"
+    else
+      render("home/edit")
+    end
   end
 
 
