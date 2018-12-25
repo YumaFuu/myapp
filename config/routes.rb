@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :home
+  root 'home#top'
+  #トップページをhomeコントローラのtopアクションに設定
+
   get "/" => "home#top"
   get "/new" => "home#new"
   get "/:id" => "home#show"
