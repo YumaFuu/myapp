@@ -3,16 +3,20 @@
  <%= @task.name %>
 </h2>
 <br>
-<div>タスクの説明:
+<p>タスクの説明:
   <%= @task.description %>
-</div>
+</p>
 <br>
-<div>終了期限:
+<p>終了期限:
   <%= @task.deadline %>
-</div>
-<div>ステータス:
+</p>
+<p>ステータス:
   <%= @task.status %>
-</div>
+</p>
+<p>優先順位:
+  <%= @task.priority %>
+</p>
+
 
 <li>
   <%= link_to("編集する","/#{@task.id}/edit") %>

@@ -1,8 +1,3 @@
-<div>タスク一覧</div>
-
-<% if params[:status] && params[:status] != "all" %>
-  <p><%=  params[:status] %>で絞り込みました</p>
-<% end %>
 
 <%= form_tag("/search_name") do%>
   <p>名前で検索</p>
@@ -21,10 +16,32 @@
   <input type=submit value="絞り込む">
 <% end %>
 
+<%= form_tag("/search_priority") do%>
+  <p>優先順位で絞り込み</p>
+  <select name="priority" >
+    <option value="all">全て</option>
+    <option value="low">低</option>
+    <option value="mid">中</option>
+    <option value="high">高</option>
+  </select>
+  <input type=submit value="絞り込む">
+<% end %>
+
+<% if params[:status] && params[:status] != "all" %>
+  <p><%=  params[:status] %>で絞り込みました</p>
+<% end %>
+
+<% if params[:priority] && params[:priority] != "all" %>
+  <p><%=  params[:priority] %>で絞り込みました</p>
+<% end %>
+
+<p>タスク一覧</p>
+
 <% @tasks.each do |task| %>
   <li>
    <%= link_to(task.name,"/#{task.id}")  %>
    <%= task.status %>
    <%= task.deadline %>
+   <%= task.priority %>
   </li>
 <% end %>

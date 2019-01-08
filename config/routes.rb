@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/" => "home#top"
   post "/search_status" => "home#search_status"
   post "/search_name" => "home#search_name"
+  post "/search_priority" => "home#search_priority"
   get "/new" => "home#new"
   get "/:id" => "home#show"
   get "/:id/edit" => "home#edit"

@@ -5,7 +5,6 @@ class HomeController < ApplicationController
       @tasks = Task.where status:@status.order(created_at: :desc)
     else
       @tasks = Task.all.order(created_at: :desc)
-
     end
   end
 
@@ -14,7 +13,7 @@ class HomeController < ApplicationController
   end
 
   def create
-    @task = Task.new(name: params[:name],description: params[:description],deadline: params[:deadline],status: params[:status])
+    @task = Task.new(name: params[:name],description: params[:description],deadline: params[:deadline],status: params[:status],priority: params[:priority])
     @task.save
     redirect_to("/")
     flash[:notice] = "タスクを登録しました"
@@ -36,6 +35,7 @@ class HomeController < ApplicationController
     @task.description = params[:description]
     @task.deadline = params[:deadline]
     @task.status = params[:status]
+    @task.priority = params[:priority]
     if @task.save
       redirect_to("/")
       flash[:notice] = "タスクを編集しました"
@@ -61,6 +61,17 @@ class HomeController < ApplicationController
   def search_status
     if params[:status] && params[:status] != "all"
       @tasks = Task.where(status: params[:status])
+      render("home/top")
+    else
+      redirect_to("/")
+    end
+
+  end
+
+
+  def search_priority
+    if params[:priority] && params[:priority] != "all"
+      @tasks = Task.where(priority: params[:priority])
       render("home/top")
     else
       redirect_to("/")
