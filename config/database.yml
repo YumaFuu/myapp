@@ -20,4 +20,8 @@ production:
   database: todo_app_roduction
   username: sample_app
   password: <%= ENV['SAMPLE_DATABASE_PASSWORD'] %>
+<<<<<<< HEAD
   socket: /var/lib/mysql/mysql.sock
+=======
+  url: <%= ENV['DATABASE_URL'] %>
+>>>>>>> origin/master
