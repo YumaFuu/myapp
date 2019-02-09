@@ -17,6 +17,7 @@ test:
 
 production:
   <<: *default
-  database: todo_production
+  database: todo_app_roduction
   username: sample_app
   password: <%= ENV['SAMPLE_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
